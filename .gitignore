@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Generated data
+data_lake_mexora_rh/bronze/**/*.json
+data_lake_mexora_rh/silver/**/*.parquet
+data_lake_mexora_rh/gold/**/*.parquet
+
+# Reports generated
+reports/*.pdf
