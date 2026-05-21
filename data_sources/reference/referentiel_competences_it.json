@@ -1,0 +1,311 @@
+{
+  "familles": {
+    "langages": {
+      "python": [
+        "python",
+        "python3",
+        "py"
+      ],
+      "javascript": [
+        "javascript",
+        "js",
+        "node.js",
+        "nodejs",
+        "node"
+      ],
+      "java": [
+        "java",
+        "java8",
+        "java11",
+        "java17"
+      ],
+      "sql": [
+        "sql",
+        "mysql",
+        "postgresql",
+        "postgres",
+        "oracle",
+        "tsql"
+      ],
+      "r": [
+        "r",
+        "rlang",
+        "r-studio",
+        "rstudio"
+      ],
+      "scala": [
+        "scala"
+      ],
+      "typescript": [
+        "typescript",
+        "ts"
+      ],
+      "php": [
+        "php",
+        "php8"
+      ],
+      "csharp": [
+        "c#",
+        "csharp",
+        ".net",
+        "dotnet"
+      ],
+      "go": [
+        "go",
+        "golang"
+      ]
+    },
+    "frameworks_web": {
+      "react": [
+        "react",
+        "reactjs",
+        "react.js"
+      ],
+      "angular": [
+        "angular",
+        "angularjs"
+      ],
+      "vue": [
+        "vue",
+        "vuejs",
+        "vue.js"
+      ],
+      "django": [
+        "django",
+        "django rest"
+      ],
+      "flask": [
+        "flask"
+      ],
+      "spring": [
+        "spring",
+        "spring boot",
+        "springboot"
+      ],
+      "laravel": [
+        "laravel"
+      ],
+      "express": [
+        "express",
+        "express.js"
+      ],
+      "nextjs": [
+        "next.js",
+        "nextjs",
+        "next"
+      ]
+    },
+    "data_engineering": {
+      "spark": [
+        "spark",
+        "apache spark",
+        "pyspark"
+      ],
+      "kafka": [
+        "kafka",
+        "apache kafka"
+      ],
+      "airflow": [
+        "airflow",
+        "apache airflow"
+      ],
+      "dbt": [
+        "dbt",
+        "data build tool"
+      ],
+      "hadoop": [
+        "hadoop",
+        "hdfs",
+        "mapreduce"
+      ],
+      "etl": [
+        "etl",
+        "elt",
+        "data pipeline",
+        "pipeline data"
+      ],
+      "databricks": [
+        "databricks"
+      ],
+      "snowflake": [
+        "snowflake"
+      ],
+      "data_lake": [
+        "data lake",
+        "datalake",
+        "lakehouse"
+      ]
+    },
+    "cloud": {
+      "aws": [
+        "aws",
+        "amazon web services",
+        "ec2",
+        "s3",
+        "lambda"
+      ],
+      "gcp": [
+        "gcp",
+        "google cloud",
+        "bigquery",
+        "cloud storage"
+      ],
+      "azure": [
+        "azure",
+        "microsoft azure",
+        "synapse"
+      ],
+      "docker": [
+        "docker",
+        "container",
+        "containers"
+      ],
+      "kubernetes": [
+        "kubernetes",
+        "k8s"
+      ],
+      "terraform": [
+        "terraform",
+        "iac"
+      ]
+    },
+    "bi_analytics": {
+      "power_bi": [
+        "power bi",
+        "powerbi",
+        "pbi"
+      ],
+      "tableau": [
+        "tableau",
+        "tableau desktop"
+      ],
+      "metabase": [
+        "metabase"
+      ],
+      "looker": [
+        "looker",
+        "looker studio"
+      ],
+      "excel": [
+        "excel",
+        "power query",
+        "power pivot"
+      ],
+      "qlik": [
+        "qlik",
+        "qlik sense"
+      ]
+    },
+    "data_science": {
+      "machine_learning": [
+        "machine learning",
+        "ml",
+        "apprentissage automatique"
+      ],
+      "deep_learning": [
+        "deep learning",
+        "dl",
+        "réseaux de neurones"
+      ],
+      "nlp": [
+        "nlp",
+        "traitement du langage naturel"
+      ],
+      "computer_vision": [
+        "computer vision",
+        "vision par ordinateur"
+      ],
+      "tensorflow": [
+        "tensorflow",
+        "tf"
+      ],
+      "pytorch": [
+        "pytorch",
+        "torch"
+      ],
+      "scikit_learn": [
+        "scikit-learn",
+        "sklearn",
+        "scikit learn"
+      ],
+      "pandas": [
+        "pandas"
+      ],
+      "numpy": [
+        "numpy"
+      ]
+    },
+    "methodologies": {
+      "agile": [
+        "agile",
+        "scrum",
+        "kanban"
+      ],
+      "git": [
+        "git",
+        "github",
+        "gitlab"
+      ],
+      "ci_cd": [
+        "ci/cd",
+        "cicd",
+        "continuous integration"
+      ],
+      "devops": [
+        "devops"
+      ],
+      "jira": [
+        "jira"
+      ]
+    },
+    "databases": {
+      "mongodb": [
+        "mongodb",
+        "mongo"
+      ],
+      "redis": [
+        "redis"
+      ],
+      "elasticsearch": [
+        "elasticsearch",
+        "elastic search"
+      ],
+      "sql_server": [
+        "sql server",
+        "mssql"
+      ],
+      "mysql": [
+        "mysql"
+      ],
+      "postgresql": [
+        "postgresql",
+        "postgres"
+      ],
+      "oracle": [
+        "oracle database",
+        "oracle"
+      ],
+      "cassandra": [
+        "cassandra"
+      ]
+    },
+    "cybersecurity": {
+      "soc": [
+        "soc",
+        "security operations center"
+      ],
+      "siem": [
+        "siem",
+        "splunk"
+      ],
+      "pentest": [
+        "pentest",
+        "penetration testing"
+      ],
+      "iso27001": [
+        "iso 27001",
+        "iso27001"
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+﻿nom_entreprise,secteur,taille,ville_siege,site_web,type
+Capgemini Maroc,Services IT,Grande Entreprise,Casablanca,https://www.capgemini.com/ma-en,Conseil
+Inetum Maroc,Services numériques,Grande Entreprise,Casablanca,https://www.inetum.com,SSII
+HPS,Paiement électronique,Grande Entreprise,Casablanca,https://www.hps-worldwide.com,Produit
+Orange Business Maroc,Télécom & Cloud,Grande Entreprise,Casablanca,https://www.orange-business.com,Telecom
+Atos Maroc,Services IT,Grande Entreprise,Casablanca,https://atos.net,SSII
+Leyton Maroc,Conseil & Innovation,ETI,Casablanca,https://leyton.com,Conseil
+DXC Technology Maroc,Services IT,Grande Entreprise,Casablanca,https://dxc.com,SSII
+Sopra Steria Maroc,Transformation digitale,Grande Entreprise,Casablanca,https://www.soprasteria.com,Conseil
+Dell Technologies Morocco,Technologie,Grande Entreprise,Casablanca,https://www.dell.com,Produit
+IBM Maroc,Technologie & Conseil,Grande Entreprise,Casablanca,https://www.ibm.com,Conseil
+Oracle Maroc,Logiciels & Cloud,Grande Entreprise,Casablanca,https://www.oracle.com,Produit
+Microsoft Morocco,Cloud & Logiciels,Grande Entreprise,Casablanca,https://www.microsoft.com,Produit
+Ericsson Maroc,Télécom,Grande Entreprise,Casablanca,https://www.ericsson.com,Telecom
+inwi,Télécom,Grande Entreprise,Casablanca,https://www.inwi.ma,Telecom
+Attijariwafa Bank IT,Banque,Grande Entreprise,Casablanca,https://www.attijariwafabank.com,Banque
+BMCE Bank IT,Banque,Grande Entreprise,Casablanca,https://www.bankofafrica.ma,Banque
+CIH Bank IT,Banque,Grande Entreprise,Casablanca,https://www.cihbank.ma,Banque
+Casa Digital Factory,Digital,ETI,Casablanca,https://example.com,SSII
+Atlas Cloud Services,Cloud,PME,Casablanca,https://example.com,Conseil
+Casa Data Consulting,Data & BI,PME,Casablanca,https://example.com,Conseil
+SQLI Maroc,Digital & IT,Grande Entreprise,Rabat,https://www.sqli.com,SSII
+Cegedim Maroc,Santé & Logiciels,ETI,Rabat,https://www.cegedim.com,Produit
+ALTEN Maroc,Ingénierie & IT,Grande Entreprise,Rabat,https://www.alten.com,Conseil
+Huawei Technologies Morocco,Télécom & Cloud,Grande Entreprise,Rabat,https://www.huawei.com,Telecom
+Maroc Telecom,Télécom,Grande Entreprise,Rabat,https://www.iam.ma,Telecom
+Bank Al-Maghrib IT,Banque,Grande Entreprise,Rabat,https://www.bkam.ma,Banque
+Crédit Agricole du Maroc IT,Banque,Grande Entreprise,Rabat,https://www.creditagricole.ma,Banque
+Rabat Analytics Lab,Data Analytics,Startup,Rabat,https://example.com,Produit
+Rabat Cloud Engineering,Cloud,PME,Rabat,https://example.com,Conseil
+Atlas GovTech Solutions,Services numériques,ETI,Rabat,https://example.com,Produit
+Mexora Analytics,E-commerce,ETI,Tanger,https://example.com,Produit
+TangerTech Solutions,Services IT,PME,Tanger,https://example.com,SSII
+North Data Factory,Data & BI,Startup,Tanger,https://example.com,Produit
+Tanger Digital Services,Transformation digitale,PME,Tanger,https://example.com,Conseil
+Tangier Software Hub,Développement logiciel,PME,Tanger,https://example.com,SSII
+Detroit Data Morocco,Data Engineering,Startup,Tanger,https://example.com,Produit
+Med Port Tech,Logistique & IT,ETI,Tanger,https://example.com,Autre
+NTT DATA Morocco,Conseil IT,Grande Entreprise,Tetouan,https://www.nttdata.com,Conseil
+Tetouan Web Services,Web,PME,Tetouan,https://example.com,SSII
+Tetouan Digital Lab,Digital,Startup,Tetouan,https://example.com,Produit
+North Cloud Tetouan,Cloud,PME,Tetouan,https://example.com,Conseil
+Rif Software Solutions,Développement logiciel,PME,Tetouan,https://example.com,SSII
+Marrakech Tech Hub,Logiciels,Startup,Marrakech,https://example.com,Produit
+Marrakech Digital Agency,Digital,PME,Marrakech,https://example.com,Conseil
+Atlas Tourism Tech,Tourisme & IT,Startup,Marrakech,https://example.com,Produit
+Red City Software,Développement logiciel,PME,Marrakech,https://example.com,SSII
+Marrakech BI Services,BI & Analytics,PME,Marrakech,https://example.com,Conseil
+Fes Software House,Développement logiciel,PME,Fes,https://example.com,SSII
+Fes Data Lab,Data Analytics,Startup,Fes,https://example.com,Produit
+Atlas AI Fes,IA,Startup,Fes,https://example.com,Produit
+Fes Digital Services,Services IT,PME,Fes,https://example.com,SSII
+Smart Medina Tech,Smart City,PME,Fes,https://example.com,Autre
+Agadir Data Services,Data,PME,Agadir,https://example.com,Conseil
+Souss Tech Solutions,Services IT,PME,Agadir,https://example.com,SSII
+Agadir Cloud Factory,Cloud,Startup,Agadir,https://example.com,Produit
+Souss Analytics,BI & Analytics,PME,Agadir,https://example.com,Conseil
+Agadir Web Studio,Web,PME,Agadir,https://example.com,SSII
+Oujda AI Lab,IA,Startup,Oujda,https://example.com,Produit
+Oriental Digital Services,Services IT,PME,Oujda,https://example.com,SSII
+Oujda Data Consulting,Data,PME,Oujda,https://example.com,Conseil
+Oriental Cloud Lab,Cloud,Startup,Oujda,https://example.com,Produit
+Oujda Software Center,Développement logiciel,PME,Oujda,https://example.com,SSII
+Kenitra Dev Center,Services IT,PME,Kenitra,https://example.com,SSII
+Gharb Digital Factory,Digital,PME,Kenitra,https://example.com,Conseil
+Kenitra Analytics,Data Analytics,Startup,Kenitra,https://example.com,Produit
+AutoTech Kenitra,Automobile & IT,ETI,Kenitra,https://example.com,Autre
+Kenitra Cloud Services,Cloud,PME,Kenitra,https://example.com,Conseil
+Meknes Software Lab,Développement logiciel,PME,Meknes,https://example.com,SSII
+Meknes Data Services,Data,Startup,Meknes,https://example.com,Produit
+Ismailia Tech Consulting,Conseil IT,PME,Meknes,https://example.com,Conseil
+Meknes BI Factory,BI & Analytics,PME,Meknes,https://example.com,Conseil
+AgroTech Meknes,AgriTech & IT,Startup,Meknes,https://example.com,Produit
+Mohammedia Digital Services,Services IT,PME,Mohammedia,https://example.com,SSII
+Casa North Tech,Digital,PME,Mohammedia,https://example.com,Conseil
+Mohammedia Data Lab,Data Analytics,Startup,Mohammedia,https://example.com,Produit
+Zenata Cloud Solutions,Cloud,PME,Mohammedia,https://example.com,Conseil
+Atlantic Software Mohammedia,Développement logiciel,PME,Mohammedia,https://example.com,SSII
+El Jadida Tech Services,Services IT,PME,El_Jadida,https://example.com,SSII
+Mazagan Digital Lab,Digital,Startup,El_Jadida,https://example.com,Produit
+Jorf Tech Analytics,Industrie & Data,ETI,El_Jadida,https://example.com,Autre
+El Jadida Cloud Services,Cloud,PME,El_Jadida,https://example.com,Conseil
+Mazagan Software House,Développement logiciel,PME,El_Jadida,https://example.com,SSII
