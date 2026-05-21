@@ -378,19 +378,19 @@ def random_title(profile: str) -> str:
 
 def skills_for_profile(profile: str) -> list[str]:
     mapping = {
-        "Data Engineer": ["Python", "SQL", "Spark", "Airflow", "Kafka", "dbt", "Docker", "AWS", "Git"],
+        "Data Engineer": ["Python", "SQL", "Spark", "Airflow", "Kafka", "dbt", "Docker", "AWS"],
         "Data Analyst": ["SQL", "Python", "Power BI", "Tableau", "Excel", "Metabase", "Looker Studio"],
         "Data Scientist": ["Python", "Machine Learning", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "NLP"],
-        "Développeur Full Stack": ["React", "Node.js", "JavaScript", "PostgreSQL", "Docker", "Git", "Agile"],
-        "Développeur Backend": ["Java", "Spring Boot", "SQL", "PostgreSQL", "Docker", "Git"],
-        "Développeur Frontend": ["React", "Angular", "Vue.js", "JavaScript", "TypeScript", "Git"],
-        "DevOps / SRE": ["Docker", "Kubernetes", "Terraform", "AWS", "CI/CD", "Git"],
+        "Développeur Full Stack": ["React", "Node.js", "JavaScript", "PostgreSQL", "Docker", "Agile"],
+        "Développeur Backend": ["Java", "Spring Boot", "SQL", "PostgreSQL", "Docker"],
+        "Développeur Frontend": ["React", "Angular", "Vue.js", "JavaScript", "TypeScript"],
+        "DevOps / SRE": ["Docker", "Kubernetes", "Terraform", "AWS", "CI/CD", "DevOps"],
         "Cloud Engineer": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"],
         "Cybersécurité": ["SOC", "SIEM", "Pentest", "ISO 27001", "Splunk"],
-        "Chef de Projet IT": ["Agile", "Scrum", "Jira", "Power BI", "Git"],
+        "Chef de Projet IT": ["Agile", "Scrum", "Jira", "Power BI"],
         "Architecte IT": ["Cloud", "AWS", "Azure", "Data Lake", "Kubernetes", "PostgreSQL"],
     }
-    return mapping.get(profile, ["SQL", "Git"])
+    return mapping.get(profile, ["SQL"])
 
 
 def random_competences_brut(skills: list[str]) -> str:
@@ -405,19 +405,29 @@ def random_competences_brut(skills: list[str]) -> str:
 
 def generate_description(profile: str, skills: list[str]) -> str:
     selected = random.sample(skills, k=random.randint(3, min(len(skills), 6)))
+
     phrases = [
         f"Nous recherchons un profil {profile} pour renforcer notre équipe IT au Maroc.",
         f"Le candidat devra maîtriser {', '.join(selected)}.",
         "Une bonne communication en français est requise.",
         "La connaissance de l'anglais technique est appréciée.",
         "Le poste implique la participation à des projets stratégiques et à des ateliers avec les équipes métier.",
-        "Une expérience en méthode Agile et l'utilisation de Git sont fortement appréciées."
     ]
+
+    # On ajoute Agile et Git seulement dans une partie des offres,
+    # afin d'éviter que ces compétences apparaissent artificiellement dans 100% du dataset.
+    if random.random() < 0.45:
+        phrases.append("Une expérience en méthode Agile est appréciée.")
+
+    if random.random() < 0.55:
+        phrases.append("La maîtrise de Git ou GitLab constitue un avantage.")
 
     if random.random() < 0.15:
         phrases.append("La description contient parfois des informations peu structurées comme des listes, retours à la ligne et séparateurs incohérents.")
 
     return " ".join(phrases)
+
+
 
 
 def generate_offres(entreprises: list[dict]) -> dict:
