@@ -1,0 +1,12 @@
+﻿profil,nb_offres_total,nb_avec_salaire,pct_salaire_communique,salaire_median_mad,salaire_plancher,salaire_plafond
+Architecte IT,142.0,116.0,81.7,34250.0,22000.0,55000.0
+Chef de Projet IT,210.0,161.0,76.7,28626.0,15000.0,45004.0
+Cloud Engineer,257.0,188.0,73.2,27500.0,13997.0,44000.0
+DevOps / SRE,388.0,308.0,79.4,26500.0,13997.0,42000.0
+Data Scientist,389.0,307.0,78.9,25500.0,13000.0,40003.0
+Data Engineer,630.0,494.0,78.4,23500.0,11999.0,38005.0
+Cybersécurité,170.0,137.0,80.6,22251.0,11999.0,38000.0
+Développeur Backend,581.0,441.0,75.9,19500.0,8996.0,33005.0
+Développeur Full Stack,615.0,465.0,75.6,18997.0,8996.0,34000.0
+Développeur Frontend,640.0,505.0,78.9,18500.0,8000.0,34000.0
+Data Analyst,763.0,588.0,77.1,17496.0,8000.0,30002.0

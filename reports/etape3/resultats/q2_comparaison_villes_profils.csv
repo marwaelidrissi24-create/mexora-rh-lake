@@ -1,0 +1,56 @@
+﻿ville,profil,nb_offres,nb_offres_remote,pct_remote,rang_ville
+Casablanca,Architecte IT,44.0,25.0,56.82,1
+Rabat,Architecte IT,21.0,12.0,57.14,2
+Fes,Architecte IT,14.0,13.0,92.86,3
+Tanger,Architecte IT,13.0,6.0,46.15,4
+Marrakech,Architecte IT,7.0,5.0,71.43,5
+Casablanca,Chef de Projet IT,66.0,34.0,51.52,1
+Rabat,Chef de Projet IT,26.0,16.0,61.54,2
+Tanger,Chef de Projet IT,23.0,10.0,43.48,3
+Marrakech,Chef de Projet IT,20.0,15.0,75.0,4
+Fes,Chef de Projet IT,17.0,9.0,52.94,5
+Casablanca,Cloud Engineer,67.0,42.0,62.69,1
+Rabat,Cloud Engineer,39.0,23.0,58.97,2
+Tanger,Cloud Engineer,32.0,16.0,50.0,3
+Marrakech,Cloud Engineer,26.0,15.0,57.69,4
+Fes,Cloud Engineer,6.0,5.0,83.33,5
+Casablanca,Cybersécurité,51.0,32.0,62.75,1
+Rabat,Cybersécurité,29.0,16.0,55.17,2
+Tanger,Cybersécurité,13.0,8.0,61.54,3
+Marrakech,Cybersécurité,9.0,5.0,55.56,4
+Fes,Cybersécurité,8.0,5.0,62.5,5
+Casablanca,Data Analyst,166.0,106.0,63.86,1
+Rabat,Data Analyst,75.0,47.0,62.67,2
+Tanger,Data Analyst,66.0,42.0,63.64,3
+Marrakech,Data Analyst,59.0,32.0,54.24,4
+Fes,Data Analyst,56.0,36.0,64.29,5
+Casablanca,Data Engineer,183.0,105.0,57.38,1
+Rabat,Data Engineer,77.0,53.0,68.83,2
+Tanger,Data Engineer,70.0,43.0,61.43,3
+Marrakech,Data Engineer,38.0,22.0,57.89,4
+Fes,Data Engineer,34.0,23.0,67.65,5
+Casablanca,Data Scientist,110.0,72.0,65.45,1
+Tanger,Data Scientist,43.0,23.0,53.49,2
+Rabat,Data Scientist,41.0,24.0,58.54,3
+Fes,Data Scientist,27.0,17.0,62.96,4
+Marrakech,Data Scientist,21.0,12.0,57.14,5
+Casablanca,DevOps / SRE,107.0,66.0,61.68,1
+Rabat,DevOps / SRE,49.0,25.0,51.02,2
+Tanger,DevOps / SRE,39.0,26.0,66.67,3
+Marrakech,DevOps / SRE,26.0,14.0,53.85,4
+Fes,DevOps / SRE,17.0,13.0,76.47,5
+Casablanca,Développeur Backend,147.0,88.0,59.86,1
+Rabat,Développeur Backend,79.0,49.0,62.03,2
+Tanger,Développeur Backend,50.0,32.0,64.0,3
+Fes,Développeur Backend,40.0,24.0,60.0,4
+Marrakech,Développeur Backend,39.0,19.0,48.72,5
+Casablanca,Développeur Frontend,150.0,104.0,69.33,1
+Rabat,Développeur Frontend,81.0,49.0,60.49,2
+Tanger,Développeur Frontend,60.0,39.0,65.0,3
+Fes,Développeur Frontend,47.0,26.0,55.32,4
+Marrakech,Développeur Frontend,42.0,26.0,61.9,5
+Casablanca,Développeur Full Stack,132.0,89.0,67.42,1
+Rabat,Développeur Full Stack,68.0,41.0,60.29,2
+Tanger,Développeur Full Stack,53.0,34.0,64.15,3
+Marrakech,Développeur Full Stack,43.0,24.0,55.81,4
+Fes,Développeur Full Stack,28.0,16.0,57.14,5

@@ -1,0 +1,16 @@
+﻿profil,famille,competence,nb_offres_mentionnent,rang_dans_profil
+Data Analyst,bi_analytics,looker,684,1
+Data Analyst,bi_analytics,tableau,654,2
+Data Analyst,bi_analytics,metabase,650,3
+Data Analyst,bi_analytics,power_bi,646,4
+Data Analyst,langages,sql,642,5
+Data Engineer,data_engineering,airflow,501,1
+Data Engineer,data_engineering,spark,498,2
+Data Engineer,langages,python,495,3
+Data Engineer,langages,sql,495,3
+Data Engineer,data_engineering,kafka,494,5
+Data Scientist,data_science,scikit_learn,368,1
+Data Scientist,data_science,numpy,350,2
+Data Scientist,data_science,pandas,349,3
+Data Scientist,data_science,tensorflow,348,4
+Data Scientist,data_science,nlp,345,5
