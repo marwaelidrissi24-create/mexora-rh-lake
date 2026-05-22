@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Mexora RH Intelligence</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #FFF7FB, #F3E5F5);
+    color: #2D2433;
+}
+.container {
+    max-width: 1180px;
+    margin: 32px auto;
+    padding: 24px;
+}
+.header {
+    background: linear-gradient(135deg, #F8BBD0, #CE93D8);
+    color: white;
+    padding: 28px 34px;
+    border-radius: 24px;
+    box-shadow: 0 14px 35px rgba(106, 27, 154, 0.18);
+}
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+.header p {
+    margin: 8px 0 0;
+    font-size: 16px;
+    opacity: 0.95;
+}
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 26px 0;
+}
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: 0 10px 24px rgba(106, 27, 154, 0.10);
+    border: 1px solid #F3D7EE;
+}
+.kpi-value {
+    color: #D81B60;
+    font-weight: 800;
+    font-size: 28px;
+}
+.kpi-label {
+    color: #6C5A72;
+    margin-top: 6px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+.figure {
+    background: white;
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow: 0 12px 28px rgba(106, 27, 154, 0.10);
+    border: 1px solid #F3D7EE;
+}
+.figure img {
+    width: 100%;
+    border-radius: 16px;
+}
+.full {
+    grid-column: span 2;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Dashboard de Synthèse — Marché de l’Emploi IT au Maroc</h1>
+        <p>Mexora RH Intelligence — analyse décisionnelle pour la stratégie de recrutement</p>
+    </div>
+
+    <div class="kpis">
+        <div class="card"><div class="kpi-value">5000</div><div class="kpi-label">Offres analysées</div></div>
+        <div class="card"><div class="kpi-value">82</div><div class="kpi-label">Entreprises recruteuses</div></div>
+        <div class="card"><div class="kpi-value">12</div><div class="kpi-label">Villes couvertes</div></div>
+        <div class="card"><div class="kpi-value">61.0%</div><div class="kpi-label">Remote ou hybride</div></div>
+    </div>
+
+    <div class="grid">
+        <div class="figure"><img src="figures/carte_maroc_bubbles.png"></div>
+        <div class="figure"><img src="figures/top15_competences.png"></div>
+        <div class="figure"><img src="figures/boxplot_salaires_profils.png"></div>
+        <div class="figure"><img src="figures/evolution_mensuelle_data.png"></div>
+        <div class="figure full"><img src="figures/dashboard_synthese.png"></div>
+    </div>
+</div>
+</body>
+</html>
