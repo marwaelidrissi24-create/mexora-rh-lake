@@ -15,7 +15,7 @@ L’entreprise fictive **Mexora** souhaite renforcer son équipe data en recruta
 - Les entreprises recrutent-elles davantage en CDI, freelance ou autres contrats ?
 - Qui sont les principaux concurrents de Mexora sur le marché du talent ?
 
-Pour répondre à ces besoins, ce projet met en place un **Data Lake local** organisé en trois zones : **Bronze**, **Silver** et **Gold**.
+Pour répondre à ces besoins, ce projet met en place un **Data Lake local** organisé en trois zones : **Bronze**, **Silver** et **Gold**, puis produit une analyse décisionnelle, un notebook analytique, un dashboard de synthèse et un rapport final orienté DRH.
 
 ---
 
@@ -24,12 +24,16 @@ Pour répondre à ces besoins, ce projet met en place un **Data Lake local** org
 Le projet vise à :
 
 - Concevoir une architecture Data Lake en zones Bronze / Silver / Gold.
+- Justifier les formats de stockage utilisés : JSON, CSV et Parquet.
 - Générer un dataset réaliste de 5 000 offres d’emploi IT marocaines.
 - Ingestérer les données brutes dans une zone Bronze immuable.
 - Nettoyer, standardiser et typer les données dans une zone Silver.
 - Extraire les compétences IT depuis du texte libre avec une approche NLP basique par regex.
 - Construire des tables analytiques Gold exploitables avec DuckDB.
-- Préparer les données pour l’analyse de marché, le dashboard et le rapport final.
+- Répondre à 5 questions analytiques avec SQL/DuckDB.
+- Produire un notebook d’analyse avec tableaux, visualisations et interprétations.
+- Générer un dashboard de synthèse avec Matplotlib et Plotly.
+- Rédiger un rapport analytique final en PDF à destination du DRH de Mexora.
 
 ---
 
@@ -40,8 +44,13 @@ Le projet vise à :
 | Python 3.11+ | Développement et orchestration du pipeline |
 | pandas | Manipulation, nettoyage et transformation des données |
 | pyarrow | Lecture et écriture des fichiers Parquet |
-| DuckDB | Requêtes SQL analytiques sur fichiers Parquet |
+| DuckDB | Requêtes SQL analytiques directement sur fichiers Parquet |
 | re | Extraction de compétences par expressions régulières |
+| matplotlib | Visualisations statiques |
+| plotly | Carte bubble du Maroc et visualisations modernes |
+| kaleido | Export d’images Plotly |
+| pypdf | Contrôle du nombre de pages du rapport PDF |
+| Jupyter Notebook | Notebook d’analyse |
 | Git / GitHub | Versioning du code et des livrables |
 | VS Code | Environnement de développement |
 
@@ -104,7 +113,17 @@ data_lake_mexora_rh/silver/offres_clean/ville=Casablanca/mois=2024_08/offres_cle
 
 ### 4.3 Zone Gold
 
-La zone Gold contient les tables analytiques prêtes à l’emploi pour DuckDB, les notebooks, les visualisations et le rapport final.
+La zone Gold contient les tables analytiques prêtes à l’emploi pour DuckDB, le notebook, le dashboard et le rapport final.
+
+Tables Gold générées :
+
+```text
+data_lake_mexora_rh/gold/top_competences.parquet
+data_lake_mexora_rh/gold/salaires_par_profil.parquet
+data_lake_mexora_rh/gold/offres_par_ville.parquet
+data_lake_mexora_rh/gold/entreprises_recruteurs.parquet
+data_lake_mexora_rh/gold/tendances_mensuelles.parquet
+```
 
 ---
 
@@ -120,7 +139,8 @@ mexora_rh_lake/
 │   │   └── offres_emploi_it_maroc.json
 │   └── reference/
 │       ├── referentiel_competences_it.json
-│       └── entreprises_it_maroc.csv
+│       ├── entreprises_it_maroc.csv
+│       └── maps/
 │
 ├── data_lake_mexora_rh/
 │   ├── bronze/
@@ -131,8 +151,12 @@ mexora_rh_lake/
 │   ├── conception_data_lake.md
 │   ├── conception_data_lake_mexora.pdf
 │   ├── schema_architecture.png
-│   ├── structure_repertoires_data_lake.jpeg
+│   ├── structure_repertoires_data_lake.png
 │   └── rapport_pipeline.md
+│
+├── notebooks/
+│   ├── analyse_marche_it_maroc.ipynb
+│   └── create_analyse_notebook.py
 │
 ├── pipeline/
 │   ├── __init__.py
@@ -142,6 +166,22 @@ mexora_rh_lake/
 │   ├── silver_nlp.py
 │   ├── gold_aggregation.py
 │   └── utils.py
+│
+├── reports/
+│   ├── etape3/
+│   │   ├── analyse_marche_resultats.md
+│   │   ├── figures/
+│   │   └── resultats/
+│   └── etape4/
+│       ├── rapport_analytique_mexora.pdf
+│       ├── dashboard_synthese.pdf
+│       ├── rapport_analytique_mexora.md
+│       ├── rapport_analytique_mexora.html
+│       ├── dashboard_synthese.html
+│       ├── build_step4_report_dashboard.py
+│       ├── export_report_pdf.py
+│       ├── figures/
+│       └── assets/
 │
 ├── main.py
 ├── requirements.txt
@@ -163,7 +203,7 @@ data_sources/reference/referentiel_competences_it.json
 data_sources/reference/entreprises_it_maroc.csv
 ```
 
-Le dataset généré contient 5 000 offres d’emploi IT marocaines entre janvier 2023 et novembre 2024.  
+Le dataset généré contient **5 000 offres d’emploi IT marocaines** entre janvier 2023 et novembre 2024.  
 Les données sont synthétiques mais réalistes, avec des problèmes intentionnels afin de simuler des données issues du scraping.
 
 Problèmes volontairement présents dans les données brutes :
@@ -243,17 +283,61 @@ data_lake_mexora_rh/gold/entreprises_recruteurs.parquet
 data_lake_mexora_rh/gold/tendances_mensuelles.parquet
 ```
 
-### `pipeline/utils.py`
+### `analysis/analyse_marche.py`
 
-Ce fichier contient des fonctions partagées :
+Ce script répond aux 5 questions analytiques de l’étape 3 avec DuckDB :
 
-- création de dossiers ;
-- journalisation des étapes ;
-- écriture automatique du rapport `docs/rapport_pipeline.md`.
+1. Quelles compétences sont les plus demandées au Maroc en IT ?
+2. Tanger vs Casablanca vs Rabat : où se trouvent les opportunités IT ?
+3. Quel est le salaire médian par profil IT au Maroc ?
+4. Y a-t-il une corrélation entre expérience requise et salaire proposé ?
+5. Quelles entreprises recrutent le plus ? Qui sont les concurrents de Mexora ?
+
+Il génère :
+
+```text
+reports/etape3/resultats/
+reports/etape3/figures/
+reports/etape3/analyse_marche_resultats.md
+```
+
+### `notebooks/analyse_marche_it_maroc.ipynb`
+
+Notebook Jupyter final de l’étape 3.
+
+Il contient :
+
+- les requêtes DuckDB ;
+- les résultats sous forme de tableaux ;
+- les visualisations ;
+- les interprétations textuelles pour chaque question.
+
+### `reports/etape4/build_step4_report_dashboard.py`
+
+Script de génération du dashboard de synthèse et du rapport analytique Markdown.
+
+Il génère :
+
+```text
+reports/etape4/rapport_analytique_mexora.md
+reports/etape4/dashboard_synthese.html
+reports/etape4/figures/
+```
+
+### `reports/etape4/export_report_pdf.py`
+
+Script d’export du rapport final en PDF.
+
+Il génère :
+
+```text
+reports/etape4/rapport_analytique_mexora.pdf
+reports/etape4/rapport_analytique_mexora.html
+```
 
 ### `main.py`
 
-Ce fichier orchestre l’exécution complète du pipeline :
+Ce fichier orchestre l’exécution complète du pipeline Data Lake :
 
 1. Génération des sources
 2. Ingestion Bronze
@@ -308,13 +392,13 @@ pip install -r requirements.txt
 
 ## 8. Exécution complète du pipeline
 
-Pour exécuter tout le pipeline :
+Pour exécuter tout le pipeline Data Lake :
 
 ```powershell
 python main.py
 ```
 
-Cette commande reconstruit tout le Data Lake :
+Cette commande reconstruit :
 
 ```text
 data_sources
@@ -362,6 +446,30 @@ python pipeline/silver_nlp.py
 
 ```powershell
 python pipeline/gold_aggregation.py
+```
+
+### 9.6 Analyse du marché avec DuckDB
+
+```powershell
+python analysis/analyse_marche.py
+```
+
+### 9.7 Génération du notebook d’analyse
+
+```powershell
+python notebooks/create_analyse_notebook.py
+```
+
+### 9.8 Génération du rapport et du dashboard Étape 4
+
+```powershell
+python reports/etape4/build_step4_report_dashboard.py
+```
+
+### 9.9 Export du rapport analytique en PDF
+
+```powershell
+python reports/etape4/export_report_pdf.py
 ```
 
 ---
@@ -418,6 +526,28 @@ entreprises_recruteurs.parquet   : 82 lignes
 tendances_mensuelles.parquet     : 253 lignes
 ```
 
+### 10.6 Rapport final
+
+```text
+reports/etape4/rapport_analytique_mexora.pdf
+Nombre de pages : 10 pages maximum
+Public cible    : DRH de Mexora
+```
+
+### 10.7 Dashboard final
+
+```text
+reports/etape4/dashboard_synthese.pdf
+reports/etape4/dashboard_synthese.html
+```
+
+Le dashboard contient les 4 visualisations demandées :
+
+1. Carte bubble du Maroc — volume d’offres IT par ville.
+2. Top 15 compétences — barres horizontales.
+3. Boxplot salaires — distribution des salaires par profil.
+4. Évolution mensuelle — Data Engineer, Data Analyst, Data Scientist.
+
 ---
 
 ## 11. Contrôles de vérification
@@ -450,6 +580,18 @@ python -c "import pandas as pd; df=pd.read_parquet('data_lake_mexora_rh/gold/sal
 
 ```powershell
 Get-Content docs\rapport_pipeline.md -Tail 120
+```
+
+### 11.6 Vérifier le rapport analytique final
+
+```powershell
+Get-ChildItem reports\etape4\rapport_analytique_mexora.pdf
+```
+
+### 11.7 Vérifier le dashboard final
+
+```powershell
+Get-ChildItem reports\etape4\dashboard_synthese.pdf
 ```
 
 ---
@@ -488,7 +630,71 @@ Principales transformations documentées :
 
 ---
 
-## 13. Hypothèses de conception
+## 13. Analyse DuckDB
+
+Les analyses SQL sont réalisées avec DuckDB directement sur les fichiers Parquet du Data Lake.
+
+Exemple de requête :
+
+```sql
+SELECT
+    famille,
+    competence,
+    nb_offres_mentionnent,
+    pct_offres_total
+FROM read_parquet('data_lake_mexora_rh/gold/top_competences.parquet')
+WHERE profil = 'tous'
+ORDER BY nb_offres_mentionnent DESC
+LIMIT 20;
+```
+
+Cette approche respecte le principe **schema-on-read** du Data Lake : les données restent stockées sous forme de fichiers Parquet et sont interrogées directement par DuckDB, sans création d’une base relationnelle PostgreSQL.
+
+---
+
+## 14. Dashboard de synthèse
+
+Le dashboard final est disponible sous deux formats :
+
+```text
+reports/etape4/dashboard_synthese.html
+reports/etape4/dashboard_synthese.pdf
+```
+
+Technologies utilisées :
+
+- Matplotlib pour les graphiques statiques.
+- Plotly pour la carte bubble du Maroc.
+- Export PDF via Microsoft Edge en mode headless.
+
+Le dashboard adopte un style moderne et professionnel avec une palette rose clair, violet clair et blanc.
+
+---
+
+## 15. Rapport analytique final
+
+Le rapport final est disponible ici :
+
+```text
+reports/etape4/rapport_analytique_mexora.pdf
+```
+
+Il est rédigé à destination du DRH de Mexora, dans un style non technique et orienté décision.
+
+Structure du rapport :
+
+1. Résumé exécutif.
+2. Méthodologie.
+3. État du marché IT au Maroc.
+4. Compétences les plus demandées.
+5. Analyse salariale.
+6. Recommandations pour Mexora.
+
+Le rapport inclut également le lien du repository GitHub.
+
+---
+
+## 16. Hypothèses de conception
 
 Les fichiers sources sont générés par script, car aucun fichier réel n’est fourni avec l’énoncé.
 
@@ -502,25 +708,38 @@ Les données générées sont synthétiques mais réalistes. Elles reproduisent 
 - salaires non communiqués ;
 - compétences mélangées dans des champs textuels.
 
-Ces hypothèses permettent de tester réellement les capacités du pipeline de nettoyage, de standardisation, d’extraction NLP et d’agrégation analytique.
+Ces hypothèses permettent de tester réellement les capacités du pipeline de nettoyage, de standardisation, d’extraction NLP, d’agrégation analytique et d’aide à la décision RH.
 
 ---
 
-## 14. Livrables liés à l’Étape 2
+## 17. Livrables du projet
 
-| Livrable | Emplacement |
-|---|---|
-| Code Python complet | `pipeline/`, `main.py` |
-| Instructions de reproduction | `README.md` |
-| Rapport de traitement | `docs/rapport_pipeline.md` |
-| Données sources | `data_sources/` |
-| Données Bronze | `data_lake_mexora_rh/bronze/` |
-| Données Silver | `data_lake_mexora_rh/silver/` |
-| Données Gold | `data_lake_mexora_rh/gold/` |
+| Étape | Livrable | Emplacement |
+|---|---|---|
+| Étape 1 | Document de conception Data Lake | `docs/conception_data_lake_mexora.pdf` |
+| Étape 1 | Schéma d’architecture | `docs/schema_architecture.png` |
+| Étape 1 | Capture structure répertoires | `docs/structure_repertoires_data_lake.png` |
+| Étape 2 | Code Python complet | `pipeline/`, `main.py` |
+| Étape 2 | Rapport de traitement | `docs/rapport_pipeline.md` |
+| Étape 2 | Instructions de reproduction | `README.md` |
+| Étape 3 | Notebook d’analyse DuckDB | `notebooks/analyse_marche_it_maroc.ipynb` |
+| Étape 3 | Résultats et figures | `reports/etape3/` |
+| Étape 4 | Rapport analytique final PDF | `reports/etape4/rapport_analytique_mexora.pdf` |
+| Étape 4 | Dashboard de synthèse PDF | `reports/etape4/dashboard_synthese.pdf` |
 
 ---
 
-## 15. Commandes Git utiles
+## 18. Repository GitHub
+
+Repository du projet :
+
+```text
+https://github.com/marwaelidrissi24-create/mexora-rh-lake
+```
+
+---
+
+## 19. Commandes Git utiles
 
 Vérifier l’état du repository :
 
@@ -537,7 +756,7 @@ git add .
 Créer un commit :
 
 ```powershell
-git commit -m "Complete step 2 Python data lake pipeline"
+git commit -m "Update README with final project deliverables"
 ```
 
 Envoyer vers GitHub :
@@ -548,17 +767,17 @@ git push
 
 ---
 
-## 16. État actuel du projet
+## 20. État final du projet
 
-À ce stade, l’Étape 2 est complète :
+À ce stade, le projet est complet :
 
-- le pipeline Python est fonctionnel ;
-- les données sources sont générées ;
-- la zone Bronze est construite ;
-- la zone Silver est nettoyée et standardisée ;
-- les compétences IT sont extraites ;
-- les tables Gold sont générées ;
-- le rapport de traitement est produit ;
-- le pipeline peut être reproduit avec `python main.py`.
+- l’architecture Data Lake est conçue et documentée ;
+- le pipeline Python Bronze / Silver / Gold est fonctionnel ;
+- les compétences IT sont extraites depuis le texte libre ;
+- les analyses DuckDB répondent aux 5 questions demandées ;
+- le notebook d’analyse est généré ;
+- le rapport analytique final est exporté en PDF ;
+- le dashboard de synthèse est disponible en PDF et HTML ;
+- le repository GitHub contient l’ensemble des livrables.
 
-La prochaine étape est l’analyse du marché avec DuckDB dans `analysis/analyse_marche.py` et dans le notebook `analyse_marche_it_maroc.ipynb`.
+Le projet est prêt pour la remise sur Classroom.
