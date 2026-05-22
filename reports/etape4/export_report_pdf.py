@@ -371,6 +371,7 @@ def build_html() -> None:
             <p>YOUSRA SAOUIKI</p>
             <p><strong>Encadré par :</strong> PR. H. ZILI</p>
             <p><strong>Année universitaire :</strong> 2025–2026</p>
+            <p><strong>Repository GitHub :</strong> https://github.com/marwaelidrissi24-create/mexora-rh-lake</p>
         </div>
     </section>
     """
